@@ -1,0 +1,16 @@
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\KeyLogger.exe
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\KeyLogger.deps.json
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\KeyLogger.runtimeconfig.json
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\KeyLogger.dll
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\KeyLogger.pdb
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\KeyLogger.Form1.resources
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\KeyLogger.csproj.GenerateResource.cache
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\KeyLogger.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\KeyLogger.AssemblyInfoInputs.cache
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\KeyLogger.AssemblyInfo.cs
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\KeyLogger.csproj.CoreCompileInputs.cache
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\KeyLogger.dll
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\refint\KeyLogger.dll
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\KeyLogger.pdb
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\KeyLogger.genruntimeconfig.cache
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\obj\Release\net8.0-windows\ref\KeyLogger.dll

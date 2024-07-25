@@ -1,0 +1,5 @@
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\publish\KeyLogger.exe
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\publish\KeyLogger.dll
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\publish\KeyLogger.deps.json
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\publish\KeyLogger.runtimeconfig.json
+C:\Users\Burhanaddin\source\repos\KeyLogger\KeyLogger\bin\Release\net8.0-windows\publish\KeyLogger.pdb
