@@ -15,6 +15,7 @@ public class Program
 
     private static int WH_KEYBOARD_LL = 13;
     private static int WM_KEYDOWN = 0x100;
+    private static int WM_KEYUP = 0x0101;
 
     private static TextBox outputTextBox;
 
@@ -38,10 +39,19 @@ public class Program
 
     public static nint HookCallback(int nCode, nint wParam, nint lParam)
     {
-        if (nCode >= 0 && wParam == WM_KEYDOWN)
+        if (nCode >= 0)
         {
             int vkCode = Marshal.ReadInt32(lParam);
-            Console.WriteLine($"[{(Keys)vkCode}]");
+            string timeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f");
+
+            if (wParam == WM_KEYDOWN)
+            {
+                Console.WriteLine($"{timeStamp} - [KeyDown: {(Keys)vkCode}]");
+            }
+            else if (wParam == WM_KEYUP)
+            {
+                Console.WriteLine($"{timeStamp} - [KeyUp: {(Keys)vkCode}]");
+            }
         }
         return CallNextHookEx(nint.Zero, nCode, wParam, lParam);
     }

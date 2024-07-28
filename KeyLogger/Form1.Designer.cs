@@ -16,7 +16,6 @@ partial class Form1
 
     private void InitializeComponent()
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         textBox1 = new TextBox();
         SuspendLayout();
         // 
@@ -27,7 +26,7 @@ partial class Form1
         textBox1.Multiline = true;
         textBox1.Name = "textBox1";
         textBox1.ScrollBars = ScrollBars.Vertical;
-        textBox1.Size = new Size(219, 469);
+        textBox1.Size = new Size(300, 500);
         textBox1.TabIndex = 0;
         textBox1.TextChanged += textBox1_TextChanged;
         // 
@@ -35,8 +34,9 @@ partial class Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(219, 469);
+        ClientSize = new Size(300, 500);
         Controls.Add(textBox1);
+        var resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         Icon = (Icon)resources.GetObject("$this.Icon");
         Name = "Form1";
         Text = "KeyLogger";
