@@ -1,6 +1,6 @@
 ﻿namespace KeyLogger;
 
-partial class Form1
+partial class KeyLogger
 {
     private System.ComponentModel.IContainer components = null;
     private System.Windows.Forms.TextBox textBox1;
@@ -16,6 +16,7 @@ partial class Form1
 
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KeyLogger));
         textBox1 = new TextBox();
         SuspendLayout();
         // 
@@ -30,16 +31,16 @@ partial class Form1
         textBox1.TabIndex = 0;
         textBox1.TextChanged += textBox1_TextChanged;
         // 
-        // Form1
+        // KeyLogger
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(300, 500);
         Controls.Add(textBox1);
-        var resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         Icon = (Icon)resources.GetObject("$this.Icon");
-        Name = "Form1";
+        Name = "KeyLogger";
         Text = "KeyLogger";
+        Load += Form1_Load;
         ResumeLayout(false);
         PerformLayout();
     }

