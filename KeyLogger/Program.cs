@@ -53,7 +53,7 @@ public class Program
                 }
                 else if (wParam == WM_KEYUP)
                 {
-                    sw.WriteLineAsync($"{timeStamp} - [KeyDown: {(Keys)vkCode}]");
+                    sw.WriteLineAsync($"{timeStamp} - [KeyUp: {(Keys)vkCode}]");
                     Console.WriteLine($"{timeStamp} - [KeyUp: {(Keys)vkCode}]");
                 }
             }
